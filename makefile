@@ -1,6 +1,6 @@
 # Hey Emacs, this is a -*- makefile -*-
 #----------------------------------------------------------------------------
-# WinAVR Makefile Template written by Eric B. Weddington, Jörg Wunsch, et al.
+# WinAVR Makefile Template written by Eric B. Weddington, Jï¿½rg Wunsch, et al.
 #  >> Modified for use with the LUFA project. <<
 #  >> Modified for use with the adapt-ffb-joy-project. <<
 #
@@ -62,7 +62,7 @@
 
 # MCU name
 #MCU = at90usb1287
-MCU = atmega32u4
+MCU = at90usb1286
 
 # Target architecture (see library "Board Types" documentation).
 ARCH = AVR8
@@ -351,7 +351,8 @@ LDFLAGS += $(PRINTF_LIB) $(SCANF_LIB) $(MATH_LIB)
 # Type: avrdude -c ?
 # to get a full listing.
 #
-AVRDUDE_PROGRAMMER = jtagmkII
+# AVRDUDE_PROGRAMMER = jtagmkII
+AVRDUDE_PROGRAMMER = stk500v2
 
 # com1 = serial port. Use lpt1 to connect to parallel port.
 AVRDUDE_PORT = usb
@@ -372,7 +373,7 @@ AVRDUDE_WRITE_FLASH = -U flash:w:$(TARGET).hex
 # Increase verbosity level.  Please use this when submitting bug
 # reports about avrdude. See <http://savannah.nongnu.org/projects/avrdude>
 # to submit bug reports.
-#AVRDUDE_VERBOSE = -v -v
+AVRDUDE_VERBOSE = -v -v
 
 AVRDUDE_FLAGS = -p $(MCU) -P $(AVRDUDE_PORT) -c $(AVRDUDE_PROGRAMMER)
 AVRDUDE_FLAGS += $(AVRDUDE_NO_VERIFY)
